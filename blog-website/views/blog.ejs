@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Page</title>
+</head>
+
+<body>
+    <h1>The no of the blog = <%=postno%> </h1>
+    <h2>Title of the blog = <%=posts[postno][0]%> </h2>
+    <h3>The body of the blog = <%=posts[postno][1]%></h3>
+    <!-- <button>Edit</button> -->
+    <form action="/write" method="POST">
+        <button type="submit" name="<%= postno %>">Edit</button>
+    </form>
+    <form action="/delete" method="POST">
+        <button type="submit" name="<%=postno%>" >Delete</button>
+    </form>
+</body>
+</html>
