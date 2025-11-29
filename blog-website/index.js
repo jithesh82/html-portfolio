@@ -32,7 +32,17 @@ app.get(
 app.post(
     '/write',
     (req, res) => {
-        res.render('write.ejs');
+        console.log('inside write: ', req.body, Object.keys(req.body)[0]);
+        if (Object.keys(req.body).length == 0) {
+           res.render('write.ejs'); 
+        }
+        else {
+            var title = posts[Object.keys(req.body)[0]][0];
+            var matter = posts[Object.keys(req.body)[0]][1];
+            console.log('in write', title, matter);
+            res.render('write.ejs' );
+        }
+        
         console.log('to write');
     },
 )
