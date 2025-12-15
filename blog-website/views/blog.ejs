@@ -12,7 +12,7 @@
     <h3>The body of the blog = <%=posts[postno][1]%></h3>
     <!-- <button>Edit</button> -->
     <form action="/write" method="POST">
-        <button type="submit" name="<%= postno %>">Edit</button>
+        <button type="submit" name="<%=postno%>">Edit</button>
     </form>
     <form action="/delete" method="POST">
         <button type="submit" name="<%=postno%>" >Delete</button>

@@ -18,13 +18,13 @@
     </textarea> -->
     
     <div class="form-floating">
-        <form action="/save" method="POST">
+        <form action="/saveedit" method="POST">
             <label for="titleinput">Title</label>
-            <input type="text" class="form-control" placeholder="Title" id="titleinput" name="title" value="some nice title">
+            <input type="text" class="form-control" placeholder="<%= title %>" id="titleinput" name="title" value="some nice title">
             <label for="floatingTextarea2">Body</label>
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                style="height: 500px" name="matter"></textarea>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <textarea class="form-control" placeholder="<%= matter %>" id="floatingTextarea2"
+                style="height: 500px" name="matter" > <%= matter %></textarea>
+            <button type="submit" class="btn btn-primary" name="<%= blogno %>">Submit</button>
         </form>
     </div>
 </body>

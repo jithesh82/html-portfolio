@@ -37,18 +37,20 @@ app.post(
            res.render('write.ejs'); 
         }
         else {
+            var blogno = Object.keys(req.body)[0];
             var title = posts[Object.keys(req.body)[0]][0];
             var matter = posts[Object.keys(req.body)[0]][1];
-            console.log('in write', title, matter);
-            res.render('write.ejs' );
+            console.log('in edit', title, matter);
+            res.render('edit.ejs', {title : title, matter : matter, blogno : blogno});
         }
         
-        console.log('to write');
+        // console.log('to write');
     },
 )
 
 app.post(
     '/save',
+    // saves new blog 
     (req, res) => {
         res.render('submitted.ejs');
         console.log(req.body);
@@ -59,8 +61,22 @@ app.post(
     },
 )
 
+app.post(
+    '/saveedit',
+    (req, res) => {
+        // console.log('in saveedit', req.body);
+        var blogno = Object.keys(req.body)[0];
+        var title = req.body['title'];
+        var matter = req.body['matter'];
+        console.log('in saveedit', blogno, title, matter);
+        posts[blogno] = [title, matter];
+        res.render('home.ejs', {posts : posts});
+    },
+)
+
 app.get(
-    '/blog',
+    '/blog',  
+    // view blog
     (req, res) => {
         res.render('blog.ejs', {postno : req.query.number, posts : posts});
         console.log(req.query.number);
