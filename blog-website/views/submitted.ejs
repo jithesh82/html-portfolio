@@ -4,9 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .mybox {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 10%;
+            margin-right: 10%;
+            margin-top: 30px;
+            border : 2px solid rgb(51, 167, 151);
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
     <%- include('partials/header.ejs') %>
-    <h2>Your post have been submitted!!</h2>
+    <div class="mybox">
+        <h2>Blog Submitted</h2>
+    </div>      
 </body>
 </html>
